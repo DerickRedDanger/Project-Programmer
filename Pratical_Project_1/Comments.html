@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+    <title> Index </title>
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <header>
+        <img id="logo" src="./logo.jpg">
+        <nav>
+            <ul>
+                <a href="./index.html">
+                    <li>Home</li>
+                </a>
+                
+                <a href="./Contacts.html">
+                    <li>Contact</li>
+                </a>
+
+                <a href="./Photos.html">
+                    <li>Photos</li>
+                </a>
+
+                <a class="active" href="./Comments.html">
+                    <li>Comments</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="comments">
+        <div class="cover">
+
+<form id="Form" style="padding: 5px;border: 2px solid #591C21;">
+Full name: <input id="userName" type="text" name="fname" placeholder="User's name">
+<br><br>
+Email: <input id="userEmail" type="text" name="email" placeholder="User's email">
+<br><br>
+Comment:<br> <textarea id ="userComment" rows="4" cols="50" name="comment" style="width:100%" placeholder="Enter your comment here"></textarea>
+<br>
+<input type="button" onclick="myFunction()" value="Submit">
+</form>
+<br>
+<h4 style="margin: 10px auto; width: 75%; background-color: rgba(0, 0, 0, 0);">Submitted comments:</h5>
+<br>
+<p id="data"></p>
+
+<script>
+function myFunction(){
+    let div = document.createElement("div");
+    div.classList.add("comments")
+    let data = "";
+    let name = document.getElementById("userName")
+    let email = document.getElementById("userEmail")
+    let comment = document.getElementById("userComment")
+    let now = new Date();
+
+    let day = now.getDate();
+    let month = now.getMonth() + 1; // Months are 0-based in JavaScript
+    let year = now.getFullYear();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+ 
+    data = `User name: ${name.value}<br>
+    User email: ${email.value}<br>
+    On ${month}/${day}/${year} at ${hour}:${minute}  <br><br>
+    ${comment.value}`
+
+    name.value=""
+    email.value=""
+    comment.value=""
+    // display data to paragraph
+    div.innerHTML = data;
+    document.getElementById("data").appendChild(div);
+    
+    
+    
+}
+</script>
+
+
+        </div>
+    </div>
+
+    <footer>
+        <img style="object-fit: contain;" id="logo" src="./logo.jpg"/>
+        <span>All rights reserved ©</span>
+        <span> Developed by: Jonathan Marinho </span>
+
+        <nav class="footer-navigation">
+            <ul class="footer-list">
+                <a href="./index.html">
+                    <li>Home</li>
+                </a>
+                <a href="./Contacts.html">
+                    <li>Contact</li>
+                </a>
+                <a href="./Photos.html">
+                    <li>Photos</li>
+                </a>
+                <a class="active" href="./Comments.html">
+                    <li>Comments</li>
+                </a>
+            </ul>
+        </nav>
+
+    </footer>
+</body>
+</html>
