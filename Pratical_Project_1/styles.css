@@ -309,6 +309,15 @@ textarea{
 #photo-12{
     background-image: url('https://images.hdqwalls.com/download/the-batman-just-play-a-game-bj-1360x768.jpg')
 }
+
+#contacts{
+    border: 3px solid #591C21;
+    padding: 5px;
+    width: 50%;
+    margin: 20px auto;
+    color:white;
+
+}
 @media(max-width: 768px){
     .footer-navigation{
         display:block
@@ -371,4 +380,5 @@ textarea{
         height: 360px;
     }
 
+    
 }

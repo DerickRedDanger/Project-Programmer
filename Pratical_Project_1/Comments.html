@@ -46,37 +46,47 @@ Comment:<br> <textarea id ="userComment" rows="4" cols="50" name="comment" style
 <br>
 <h4 style="margin: 10px auto; width: 75%; background-color: rgba(0, 0, 0, 0);">Submitted comments:</h5>
 <br>
-<p id="data"></p>
+<p id="users_comment"></p>
 
 <script>
 function myFunction(){
+    
     let div = document.createElement("div");
     div.classList.add("comments")
     let data = "";
     let name = document.getElementById("userName")
     let email = document.getElementById("userEmail")
     let comment = document.getElementById("userComment")
-    let now = new Date();
+    
+    if(name.value != "" && email.value != "" && comment.value != ""){
 
-    let day = now.getDate();
-    let month = now.getMonth() + 1; // Months are 0-based in JavaScript
-    let year = now.getFullYear();
-    let hour = now.getHours();
-    let minute = now.getMinutes();
+        let now = new Date();
+        let day = now.getDate();
+        let month = now.getMonth() + 1; // Months are 0-based in JavaScript
+        let year = now.getFullYear();
+        let hour = now.getHours();
+        let minute = now.getMinutes();
+    
+        data = `User name: ${name.value}<br>
+        User email: ${email.value}<br>
+        On ${month}/${day}/${year} at ${hour}:${minute}  <br><br>
+        ${comment.value}`
+
+        name.value=""
+        email.value=""
+        comment.value=""
  
-    data = `User name: ${name.value}<br>
-    User email: ${email.value}<br>
-    On ${month}/${day}/${year} at ${hour}:${minute}  <br><br>
-    ${comment.value}`
+        div.innerHTML = data;
 
-    name.value=""
-    email.value=""
-    comment.value=""
-    // display data to paragraph
-    div.innerHTML = data;
-    document.getElementById("data").appendChild(div);
+        users_comment = document.getElementById("users_comment")
+
+        if (users_comment.hasChildNodes()) {
+            users_comment.insertBefore(div, users_comment.firstChild);
+        } else {
+            users_comment.appendChild(div);
+        }
     
-    
+    }
     
 }
 </script>
